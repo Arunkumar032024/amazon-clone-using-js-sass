@@ -1,31 +1,124 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+@mixin d_flex($fd, $jc, $ai) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
 }
 
 header,
 nav,
 main,
-footer{
+footer {
     min-width: 1024px;
     max-width: 1500px;
     margin: auto;
 }
 
-header{
-    background-color: red;
+header {
+    height: 60px;
+    background-color: rgb(15, 17, 17);
+    @include d_flex(row, center, center);
+    color: #fff;
+
+    .left-div {
+        width: 250px;
+        @include d_flex(row, space-between, center);
+
+        .logo {
+            @include d_flex(row, center, center);
+            width: 130px;
+
+            img {
+                width: 100%;
+                overflow: hidden;
+            }
+        }
+
+        .location {
+            &:hover {
+                border-color: #fff;
+                cursor: pointer;
+            }
+
+            border-width: 1px;
+            border-style: solid;
+            border-color: transparent;
+            padding: 5px 10px;
+            width: 120px;
+            @include d_flex(row, space-between, flex-end);
+            gap: 4px;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .fill-div {
+        flex: 1;
+        @include d_flex(row, center, center);
+        background-color: yellow;
+        border-radius: 5px;
+
+        .category-option-div {
+            background-color: #f1efef;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+
+            select {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: #333;
+                padding: 12px;
+
+            }
+        }
+
+        .input-box {
+            flex: 1;
+            input{
+                width: 100%;
+                padding: 13px;
+                border: none;
+                outline: none;
+                margin-left: -1px;
+                border-left: 1px solid #aaa;
+            }
+        }
+
+        i{
+            padding: 13px;
+            background-color: orange;
+            color: #333;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+
+    .right-div {
+        background-color: red;
+        width: 400px;
+    }
+
 }
 
-nav{
+nav {
     background-color: green;
 }
 
-main{
+main {
     background-color: blue;
 }
 
-footer{
+footer {
     background-color: yellow;
 }
